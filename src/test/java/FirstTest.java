@@ -37,7 +37,7 @@ public class FirstTest {
 
     }
 
-
+    @Ignore
     @Test
     public void gitHubMustbeOpened() throws Exception {
 
@@ -45,6 +45,7 @@ public class FirstTest {
 
     }
 
+    @Ignore
     @Test
     public void searchRepository() throws Exception {
         WebElement searchField = webDriver.findElement(By.name("q"));
