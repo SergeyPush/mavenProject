@@ -1,15 +1,17 @@
 package lesson5;
 
-import lesson5.supplementary.BaseClass;
+import lesson5.utils.AbstractClass;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 
+import static lesson5.utils.MenuItem.*;
+
 @RunWith(JUnit4.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class LoginTest extends BaseClass {
+public class LoginTest extends AbstractClass {
 
     @After
     public void setUpMethod() throws Exception {
@@ -37,7 +39,7 @@ public class LoginTest extends BaseClass {
         driver.findElement(By.xpath("//span[contains(text(),'Order history and details')]")).click();
 
         // Assert that Order History and details is opened
-        Assert.assertEquals("Order history is not opened", "ORDER HISTORY", driver.findElement(By.cssSelector("h1.page-heading")).getText());
+        Assert.assertEquals("Order history is not opened", ORDER_HISTORY.getMenuItem(), driver.findElement(By.cssSelector("h1.page-heading")).getText());
     }
 
     @Test
@@ -47,7 +49,7 @@ public class LoginTest extends BaseClass {
         driver.findElement(By.xpath("//span[contains(text(),'My credit slips')]")).click();
 
         // Assert that My credit slips is opened
-        Assert.assertEquals("My credit slips is not opened", "CREDIT SLIPS", driver.findElement(By.cssSelector("h1.page-heading")).getText());
+        Assert.assertEquals("My credit slips is not opened", MY_CREDIT_SLIPS.getMenuItem(), driver.findElement(By.cssSelector("h1.page-heading")).getText());
     }
 
     @Test
@@ -57,17 +59,18 @@ public class LoginTest extends BaseClass {
         driver.findElement(By.xpath("//span[contains(text(),'My addresses')]")).click();
 
         // Assert that My addresses is opened
-        Assert.assertEquals("My addresses is not opened", "MY ADDRESSES", driver.findElement(By.cssSelector("h1.page-heading")).getText());
+        Assert.assertEquals("My addresses is not opened", MY_ADRESSES.getMenuItem(), driver.findElement(By.cssSelector("h1.page-heading")).getText());
     }
 
     @Test
     public void test005_openMyPersonalInformation() throws Exception {
 
         //Open My personal information
+
         driver.findElement(By.xpath("//span[contains(text(),'My personal information')]")).click();
 
         // Assert that My personal information is opened
-        Assert.assertEquals("My personal information is not opened", "YOUR PERSONAL INFORMATION", driver.findElement(By.cssSelector("h1.page-subheading")).getText());
+        Assert.assertEquals("My personal information is not opened", MY_PERSONAL_INFORMATION.getMenuItem(), driver.findElement(By.cssSelector("h1.page-subheading")).getText());
     }
 
     @Test
@@ -77,7 +80,7 @@ public class LoginTest extends BaseClass {
         driver.findElement(By.xpath("//span[contains(text(),'My wishlists')]")).click();
 
         // Assert that My personal information is opened
-        Assert.assertEquals("My wishlists is not opened", "MY WISHLISTS", driver.findElement(By.cssSelector("h1.page-heading")).getText());
+        Assert.assertEquals("My wishlists is not opened", MY_WHISHLIST.getMenuItem(), driver.findElement(By.cssSelector("h1.page-heading")).getText());
     }
 
 

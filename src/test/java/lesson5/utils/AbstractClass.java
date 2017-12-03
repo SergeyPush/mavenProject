@@ -1,4 +1,4 @@
-package lesson5.supplementary;
+package lesson5.utils;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -7,14 +7,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseClass {
+public class AbstractClass {
     protected static WebDriver driver;
-    protected static String BASE_URL = "http://automationpractice.com";
+    private static String BASE_URL = "http://automationpractice.com";
 
     protected static String email = "test_account@gmail.com";
     protected static String password = "test_account";
 
-    public static LoginClass login;
+    protected static LoginClass login;
 
 
     @BeforeClass
@@ -25,7 +25,6 @@ public class BaseClass {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(BASE_URL);
         login = new LoginClass(driver);
-//        login.logInApplication(email, password);
 
     }
 

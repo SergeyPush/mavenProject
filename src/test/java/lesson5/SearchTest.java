@@ -1,6 +1,6 @@
 package lesson5;
 
-import lesson5.supplementary.BaseClass;
+import lesson5.utils.AbstractClass;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @RunWith(JUnit4.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class SearchTest extends BaseClass {
+public class SearchTest extends AbstractClass {
 
 
     @Test

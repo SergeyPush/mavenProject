@@ -39,6 +39,7 @@
                     <source>1.8</source>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

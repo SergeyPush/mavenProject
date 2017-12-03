@@ -1,4 +1,4 @@
-package lesson5.supplementary;
+package lesson5.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ public class LoginClass {
 
     private WebDriver driver;
 
-    public LoginClass(WebDriver driver) {
+    LoginClass(WebDriver driver) {
         this.driver = driver;
     }
 
