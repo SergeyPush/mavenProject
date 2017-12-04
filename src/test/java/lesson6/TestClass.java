@@ -49,7 +49,7 @@ public class TestClass extends BaseClass {
         accountPage.logOut();
 
         //Check that user SignedOut
-        Assert.assertThat("User is not SignedOut", loginPage.getPageName(), is ("AUTHENTICATION"));
+        Assert.assertThat("User is not SignedOut", loginPage.getPageName(), is("AUTHENTICATION"));
 
     }
 }

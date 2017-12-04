@@ -62,7 +62,7 @@ public class LoginPage {
         return new AccountPage(driver);
     }
 
-    public String getPageName(){
+    public String getPageName() {
         wait.until(visibilityOf(pageName));
         return pageName.getText();
     }

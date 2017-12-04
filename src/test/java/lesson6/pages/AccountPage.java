@@ -28,10 +28,10 @@ public class AccountPage {
     @FindBy(css = "div.center_column h1")
     private WebElement pageName;
 
-    public AccountPage logOut() {
+    public LoginPage logOut() {
 
         logOutButton.click();
-        return new AccountPage(driver);
+        return new LoginPage(driver);
     }
 
     public String getUserName() {
