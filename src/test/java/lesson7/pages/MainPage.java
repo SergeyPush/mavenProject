@@ -21,13 +21,10 @@ public class MainPage extends BasePage {
         searchField.clear();
         searchField.sendKeys(text);
         searchField.sendKeys(Keys.ENTER);
-
-
     }
 
     public void signIn() {
 
         signInButton.click();
-
     }
 }

@@ -16,17 +16,16 @@ public class BaseTestClass extends AbstractClass{
     protected static String password = "test_account";
 
     @BeforeClass
-    public static void setUp() throws Exception {
+    public static void setUpClass() throws Exception {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(BASE_URL);
 
     }
 
     @AfterClass
-    public static void tearDown() throws Exception {
+    public static void tearDownClass() throws Exception {
         driver.quit();
         driver = null;
     }

@@ -54,7 +54,7 @@ public class CustomCondition {
                 try {
                     webElement.isDisplayed();
                     return false;
-                }catch (StaleElementReferenceException e){
+                } catch (StaleElementReferenceException e) {
                     return true;
                 }
             }
