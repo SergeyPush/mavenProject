@@ -16,7 +16,7 @@ public abstract class AbstractClass {
         return getWebDriver().findElement(locator);
     }
 
-    public WebElement $(String xpath) {
+    protected WebElement $(String xpath) {
         return getWebDriver().findElement(By.xpath(xpath));
     }
 
