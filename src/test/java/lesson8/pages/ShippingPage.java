@@ -19,6 +19,7 @@ public class ShippingPage extends BasePage {
     WebElement agreeCheckbox;
 
     public PaymentPage proceedToCheckout(){
+        LOGGER.info("Click Proceed to Checkout");
 
         wait.until(ExpectedConditions.visibilityOf(proceedToCheckoutButton));
         agreeCheckbox.click();

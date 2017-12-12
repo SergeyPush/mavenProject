@@ -24,6 +24,7 @@ public class ResultPage extends BasePage {
     WebElement proceedToCheckoutButton;
 
     public void addToCart(String itemToBuy) {
+        LOGGER.info("Add product to cart");
 
         hover.moveToElement($("//*[@id='center_column']//a[contains(text(), '" + itemToBuy + "')]")).perform();
         wait.until(visibilityOf(addToCartButton));
@@ -32,6 +33,7 @@ public class ResultPage extends BasePage {
 
 
     public ShoppingCartSummaryPage proceedToCheckout() {
+        LOGGER.info("Click Proceed to Checkout");
 
         wait.until(visibilityOf(proceedToCheckoutButton));
         proceedToCheckoutButton.click();

@@ -16,6 +16,7 @@ public class AddressPage extends BasePage {
     WebElement proceedToCheckout;
 
     public ShippingPage proceedToCheckout() {
+        LOGGER.info("Click Proceed to Checkout");
 
         wait.until(ExpectedConditions.visibilityOf(proceedToCheckout));
         proceedToCheckout.click();

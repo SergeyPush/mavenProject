@@ -18,6 +18,7 @@ public class ShoppingCartSummaryPage extends BasePage{
 
 
     public LogInPage proceedToCheckout() {
+        LOGGER.info("Click Proceed to Checkout");
 
         wait.until(ExpectedConditions.visibilityOf(proceedToCheckoutButton));
         proceedToCheckoutButton.click();

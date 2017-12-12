@@ -29,17 +29,23 @@ public class LogInPage extends BasePage {
     private WebElement pageName;
 
     public LogInPage enterUsername(String email) {
+        LOGGER.info("Enter username");
+
         wait.until(visibilityOf(emailField));
         emailField.sendKeys(email);
         return this;
     }
 
     public LogInPage enterPassword(String password) {
+        LOGGER.info("Enter password");
+
         passwordField.sendKeys(password);
         return this;
     }
 
     public AddressPage clickSignInBtn() {
+        LOGGER.info("Click Sign It button");
+
         logInButton.click();
         return new AddressPage(driver);
     }

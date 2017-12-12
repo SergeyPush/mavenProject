@@ -19,8 +19,12 @@ public class PaymentPage extends BasePage{
     WebElement confirmMyOrderButton;
 
     public void payByBankWire() {
+        LOGGER.info("Select Pay by wire");
+
         wait.until(ExpectedConditions.visibilityOf(payByBankWireButton));
         payByBankWireButton.click();
+
+        LOGGER.info("Confirm order");
         wait.until(ExpectedConditions.visibilityOf(confirmMyOrderButton));
         confirmMyOrderButton.click();
 

@@ -3,7 +3,12 @@ package lesson8;
 import lesson8.pages.*;
 import lesson8.base.BaseTest;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -11,16 +16,15 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class PurchaseTest extends BaseTest{
+@RunWith(JUnit4.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class PurchaseTest extends BaseTest {
 
-    private MainPage mainPage;
-
+    private MainPage mainPage = new MainPage(driver);
     private String itemToBuy = "Blouse";
 
-
     @Test
-    public void test001_buySomeItem() throws InterruptedException {
-        mainPage = new MainPage(driver);
+    public void test001_buySomeItem() {
 
 
         ResultPage resultPage = mainPage.searchProduct(itemToBuy);
@@ -39,19 +43,18 @@ public class PurchaseTest extends BaseTest{
     @Test
     public void test002_verifyItemIsBought() {
 
-        //Open My account
-        $("//a[@class='account']/span").click();
+        AccountPage accountPage = mainPage.openMyAccount();
 
         //Open History and Orders
-        $("//a[@title='Orders']").click();
+        OrderHistoryAndDetailsPage orderHistory = accountPage.openHistoryAndOrders();
 
         //Open first item in page
-        $("//*[@id='order-list']/tbody/tr[1]/td[1]").click();
+        orderHistory.openFirstItem();
 
         //Get name of the item
-        WebElement itemName = $("//*[@id='order-detail-content']/table/tbody/tr/td[2]/label");
+        orderHistory.getFirstItem();
 
-        Assert.assertThat(itemName.getText(), containsString(itemToBuy));
+        Assert.assertThat(orderHistory.getFirstItem(), containsString(itemToBuy));
 
 
     }
