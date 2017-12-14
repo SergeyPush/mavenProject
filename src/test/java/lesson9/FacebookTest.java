@@ -4,10 +4,6 @@ import lesson9.base.BaseTest;
 import lesson9.pages.MainPage;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.hamcrest.CoreMatchers.is;
 
@@ -30,11 +26,7 @@ public class FacebookTest extends BaseTest{
 
         //Assert that link text is PrestaShop
         Assert.assertThat(mainPage.getLinkText() , is("PrestaShop"));
-
-
-
-
-
+        driver.switchTo().defaultContent();
 
     }
 }

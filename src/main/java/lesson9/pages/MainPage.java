@@ -2,7 +2,7 @@ package lesson9.pages;
 
 import lesson9.base.BasePage;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends BasePage {
@@ -29,4 +29,6 @@ public class MainPage extends BasePage {
         // Get Link text
         return driver.findElement(By.cssSelector("div.lfloat a")).getText();
     }
+
+
 }

@@ -1,6 +1,5 @@
 package lesson8.pages;
 
-import lesson6.pages.AccountPage;
 import lesson8.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
