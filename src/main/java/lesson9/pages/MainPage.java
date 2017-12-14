@@ -3,6 +3,7 @@ package lesson9.pages;
 import lesson9.base.BasePage;
 import org.openqa.selenium.*;
 
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends BasePage {
@@ -11,6 +12,9 @@ public class MainPage extends BasePage {
         super(driver);
 
     }
+
+    @FindBy(css = "div.facebook-fanbox iframe")
+    WebElement iframe;
 
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -23,11 +27,15 @@ public class MainPage extends BasePage {
     public String getLinkText() {
 
         // Switch to frame
-        WebElement frame = driver.findElement(By.cssSelector("div.facebook-fanbox iframe"));
-        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frame));
+//        WebElement frame = driver.findElement(By.cssSelector("div.facebook-fanbox iframe"));
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
 
         // Get Link text
-        return driver.findElement(By.cssSelector("div.lfloat a")).getText();
+        String lt = driver.findElement(By.cssSelector("div.lfloat a")).getText();
+
+        driver.switchTo().defaultContent();
+
+        return lt;
     }
 
 

@@ -26,7 +26,7 @@ public class FacebookTest extends BaseTest{
 
         //Assert that link text is PrestaShop
         Assert.assertThat(mainPage.getLinkText() , is("PrestaShop"));
-        driver.switchTo().defaultContent();
+
 
     }
 }
