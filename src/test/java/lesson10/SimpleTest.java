@@ -33,5 +33,6 @@ public class SimpleTest extends BaseTest {
     @Test
     public void test003_verifyProductIsInCart() {
         Assert.assertThat(mainPage.getProductFromCart(), is(product));
+
     }
 }
