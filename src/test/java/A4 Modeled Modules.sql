@@ -1,0 +1,47 @@
+SELECT
+
+-- List all modules
+CASE M.CATALOG
+    WHEN 1 THEN 'ISMS'
+    WHEN 2 THEN 'ORP'
+    WHEN 3 THEN 'CON'
+    WHEN 4 THEN 'OPS'
+    WHEN 5 THEN 'DER'
+    WHEN 6 THEN 'INF'
+    WHEN 7 THEN 'NET'
+    WHEN 8 THEN 'SYS'
+    WHEN 9 THEN 'APP'
+    WHEN 10 THEN 'IND'
+    WHEN 11 THEN 'PRO' END || '.'||M.NUM ||' '|| NL.NAME_DE AS Module,
+CASE TOT.HIERARCHY_LEVEL
+    WHEN 0 THEN 'IT assset set'
+    WHEN 1 THEN 'Building'
+    WHEN 2 THEN 'Room'
+    WHEN 3 THEN 'Network'
+    WHEN 4 THEN 'IT system'
+    WHEN 5 THEN 'Application'
+    WHEN 6 THEN 'Business Process'
+    WHEN 7 THEN 'Information'
+    WHEN 8 THEN 'Employee'     END || ': ' ||  TOS."NAME" ||',  '|| TOS.ABBREVIATION AS Target_Object
+
+FROM MODULE M
+JOIN NAME_LOCALIZATION NL
+ON M.NAME_LOCAL_ID = NL."ID"
+
+-- Add module evaluation
+JOIN MODULE_EVALUATION ME
+ON M."ID" = ME.MODULE_ID
+
+-- Add links
+JOIN "LINK" L
+ON ME.TARGET_OBJECT_EVALUATION_ID = L.TARGET_OBJECT_EVALUATION_ID
+
+-- Add Target Objects
+JOIN TARGET_OBJECT TOS
+ON L.SLAVE_ID = TOS."ID"
+
+-- Add Target Object type
+JOIN TARGET_OBJECT_TYPE TOT
+ON TOS.TARGET_OBJECT_TYPE_ID = TOT."ID"
+
+ORDER BY Module, Target_Object;
